@@ -5,30 +5,24 @@ import model.Livro;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LivroRepository<T> {
+public class LivroRepository {
 
-    //lista
-    private List<T> guardarLivros;
+    private List<Livro> livros = new ArrayList<>();
 
-    public LivroRepository() {
-        this.guardarLivros = new ArrayList<>();
+    public void salvar(Livro livro) {
+        livros.add(livro);
     }
 
-    public void salvarLivro(T livro){
-        guardarLivros.add(livro);
+    public List<Livro> listar() {
+        return livros;
     }
 
-    public void livrosDisponiveis(){
-        for (T livro : guardarLivros){
-            System.out.println(livro);
+    public Livro buscarPorTitulo(String titulo) {
+        for (Livro livro : livros) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+                return livro;
+            }
         }
-    }
-
-    public List<T> getGuardarLivros() {
-        return guardarLivros;
-    }
-
-    public void setGuardarLivros(List<T> guardarLivros) {
-        this.guardarLivros = guardarLivros;
+        return null;
     }
 }
