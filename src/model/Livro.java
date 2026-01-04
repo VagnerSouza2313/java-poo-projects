@@ -1,43 +1,35 @@
 package model;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 public class Livro {
-    private String nomeLivro;
-    private String autorLivro;
-    private LocalDate dataPublicacao;
 
-    public Livro() {
+    private String titulo;
+    private boolean emprestado;
+
+    public Livro(String titulo) {
+        this.titulo = titulo;
+        this.emprestado = false;
     }
 
-    public Livro(String nomeLivro, String autorLivro, LocalDate dataPublicacao) {
-        this.nomeLivro = nomeLivro;
-        this.autorLivro = autorLivro;
-        this.dataPublicacao = dataPublicacao;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public String getNomeLivro() {
-        return nomeLivro;
+    public boolean isEmprestado() {
+        return emprestado;
     }
 
-    public void setNomeLivro(String nomeLivro){
-        this.nomeLivro = nomeLivro;
+    public void emprestar() {
+        this.emprestado = true;
     }
 
-    public String getAutorLivro() {
-        return autorLivro;
+    public void devolver() {
+        this.emprestado = false;
     }
 
-    public void setAutorLivro(String autorLivro) {
-        this.autorLivro = autorLivro;
+    public String toString(){
+        return "Nome do livro: " + titulo + "\n";
     }
 
-    public LocalDate getDataPublicacao() {
-        return dataPublicacao;
-    }
 
-    public void setDataPublicacao(LocalDate dataPublicacao) {
-        this.dataPublicacao = dataPublicacao;
-    }
 }
+
